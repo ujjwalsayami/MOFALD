@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
+  Text,Dimensions,
   View,
   Image,
   ActivityIndicator
 } from 'react-native';
 
-
-export default class SplashScreen extends Component<Props> {
+let imageWidth = Dimensions.get('window').width / 2;
+let imageHeight = Dimensions.get('window').height / 2;
+export default class SplashScreen extends Component {
  state = {
     animating : true
   }
@@ -26,6 +27,7 @@ export default class SplashScreen extends Component<Props> {
       <View style={styles.container}>
         
         <Image
+          resizeMode="contain"
         	style={styles.imageStyle} 
         	source={require('../components/images/govlogo.png')} />
         <ActivityIndicator
@@ -54,8 +56,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   imageStyle:{
-  	height: 200,
-  	width: 200,
-  	borderRadius: 100
+  	height: imageWidth,
+  	width: imageHeight,
+  	borderRadius: imageHeight / 2
   }
 });

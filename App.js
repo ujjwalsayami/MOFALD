@@ -5,22 +5,15 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView
-} from 'react-native';
 
-import { createStackNavigator } from 'react-navigation';
-import Login from './components/Login';
-import Home from './components/Home';
+import { 
+  View
+   } from 'react-native';
+import RootNavigatorScreen from './components/RootNavigatorScreen';
 import SplashScreen from './components/SplashScreen';
 
 
-export default class App extends Component<Props> {
+export default class App extends Component {
   
   constructor(props) {
     super(props);
@@ -29,31 +22,14 @@ export default class App extends Component<Props> {
       currentScreen : 'SplashScreen'
     };
     setTimeout(()=>{
-      this.setState({ currentScreen : 'Home'})
+      this.setState({ currentScreen : 'RootNavigatorScreen'})
     },3000)
   }
 
   render() {
     const {currentScreen} = this.state
-    let mainScreen = currentScreen === 'SplashScreen' ? <SplashScreen /> : <Home />
+    let mainScreen = currentScreen === 'SplashScreen' ? <SplashScreen /> : <RootNavigatorScreen />
     return mainScreen
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
